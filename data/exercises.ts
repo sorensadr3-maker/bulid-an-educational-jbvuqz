@@ -13,6 +13,7 @@ export interface Exercise {
   recommendedReps: string;
   recommendedWeight: string;
   imageUrl?: string;
+  videoUrl?: string;
 }
 
 export const exercises: Exercise[] = [
@@ -48,6 +49,7 @@ export const exercises: Exercise[] = [
     recommendedReps: '6-10 reps',
     recommendedWeight: 'Start with 60-70% of your max',
     imageUrl: 'https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=800',
+    videoUrl: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4',
   },
   {
     id: 'dumbbell-press',
@@ -77,6 +79,7 @@ export const exercises: Exercise[] = [
     recommendedSets: '3-4 sets',
     recommendedReps: '8-12 reps',
     recommendedWeight: 'Choose weight you can control for all reps',
+    videoUrl: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4',
   },
   {
     id: 'cable-flyes',
@@ -106,6 +109,7 @@ export const exercises: Exercise[] = [
     recommendedSets: '3 sets',
     recommendedReps: '12-15 reps',
     recommendedWeight: 'Light to moderate weight',
+    videoUrl: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4',
   },
   // BACK EXERCISES
   {
@@ -139,6 +143,7 @@ export const exercises: Exercise[] = [
     recommendedReps: '5-8 reps',
     recommendedWeight: 'Start light and progress slowly',
     imageUrl: 'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=800',
+    videoUrl: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4',
   },
   {
     id: 'lat-pulldown',
@@ -168,6 +173,7 @@ export const exercises: Exercise[] = [
     recommendedSets: '3-4 sets',
     recommendedReps: '10-12 reps',
     recommendedWeight: 'Moderate weight with good form',
+    videoUrl: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerFun.mp4',
   },
   {
     id: 'bent-over-row',
@@ -198,6 +204,7 @@ export const exercises: Exercise[] = [
     recommendedSets: '3-4 sets',
     recommendedReps: '8-10 reps',
     recommendedWeight: 'Moderate weight',
+    videoUrl: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4',
   },
   // LEG EXERCISES
   {
@@ -231,6 +238,7 @@ export const exercises: Exercise[] = [
     recommendedReps: '6-10 reps',
     recommendedWeight: 'Start with bodyweight, progress slowly',
     imageUrl: 'https://images.unsplash.com/photo-1574680096145-d05b474e2155?w=800',
+    videoUrl: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerMeltdowns.mp4',
   },
   {
     id: 'leg-press',
@@ -260,6 +268,7 @@ export const exercises: Exercise[] = [
     recommendedSets: '3-4 sets',
     recommendedReps: '10-15 reps',
     recommendedWeight: 'Moderate to heavy',
+    videoUrl: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/Sintel.mp4',
   },
   {
     id: 'lunges',
@@ -289,6 +298,7 @@ export const exercises: Exercise[] = [
     recommendedSets: '3 sets',
     recommendedReps: '10-12 reps per leg',
     recommendedWeight: 'Bodyweight or light dumbbells',
+    videoUrl: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/SubaruOutbackOnStreetAndDirt.mp4',
   },
   // SHOULDER EXERCISES
   {
@@ -320,6 +330,7 @@ export const exercises: Exercise[] = [
     recommendedReps: '6-10 reps',
     recommendedWeight: 'Moderate weight',
     imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?w=800',
+    videoUrl: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/TearsOfSteel.mp4',
   },
   {
     id: 'lateral-raise',
@@ -349,6 +360,7 @@ export const exercises: Exercise[] = [
     recommendedSets: '3-4 sets',
     recommendedReps: '12-15 reps',
     recommendedWeight: 'Light to moderate',
+    videoUrl: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/VolkswagenGTIReview.mp4',
   },
   // ARM EXERCISES
   {
@@ -380,6 +392,7 @@ export const exercises: Exercise[] = [
     recommendedSets: '3 sets',
     recommendedReps: '10-12 reps',
     recommendedWeight: 'Moderate weight',
+    videoUrl: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/WeAreGoingOnBullrun.mp4',
   },
   {
     id: 'tricep-dips',
@@ -409,6 +422,7 @@ export const exercises: Exercise[] = [
     recommendedSets: '3 sets',
     recommendedReps: '8-12 reps',
     recommendedWeight: 'Bodyweight or add weight',
+    videoUrl: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/WhatCarCanYouGetForAGrand.mp4',
   },
   // CORE EXERCISES
   {
@@ -439,6 +453,7 @@ export const exercises: Exercise[] = [
     recommendedSets: '3 sets',
     recommendedReps: '30-60 seconds',
     recommendedWeight: 'Bodyweight',
+    videoUrl: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4',
   },
   {
     id: 'russian-twist',
@@ -468,6 +483,7 @@ export const exercises: Exercise[] = [
     recommendedSets: '3 sets',
     recommendedReps: '20-30 twists',
     recommendedWeight: 'Light weight or bodyweight',
+    videoUrl: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4',
   },
 ];
 

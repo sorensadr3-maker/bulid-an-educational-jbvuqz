@@ -14,11 +14,23 @@ import { IconSymbol } from "@/components/IconSymbol";
 import { colors } from "@/styles/commonStyles";
 import { exercises } from "@/data/exercises";
 import { SafeAreaView } from "react-native-safe-area-context";
+import { useVideoPlayer, VideoView } from 'expo-video';
+import { useEvent } from 'expo';
 
 export default function ExerciseDetailScreen() {
   const { id } = useLocalSearchParams();
   const exercise = exercises.find(e => e.id === id);
   const [activeTab, setActiveTab] = useState<'instructions' | 'form' | 'mistakes'>('instructions');
+
+  // Initialize video player if video URL exists
+  const player = useVideoPlayer(exercise?.videoUrl || null, player => {
+    if (player) {
+      player.loop = true;
+      player.muted = false;
+    }
+  });
+
+  const { isPlaying } = useEvent(player, 'playingChange', { isPlaying: player.playing });
 
   if (!exercise) {
     return (
@@ -27,6 +39,14 @@ export default function ExerciseDetailScreen() {
       </View>
     );
   }
+
+  const togglePlayPause = () => {
+    if (isPlaying) {
+      player.pause();
+    } else {
+      player.play();
+    }
+  };
 
   return (
     <>
@@ -41,8 +61,37 @@ export default function ExerciseDetailScreen() {
           style={styles.scrollView}
           showsVerticalScrollIndicator={false}
         >
-          {/* Exercise Image */}
-          {exercise.imageUrl && (
+          {/* Video Player */}
+          {exercise.videoUrl && (
+            <View style={styles.videoContainer}>
+              <VideoView 
+                style={styles.video} 
+                player={player}
+                allowsFullscreen
+                allowsPictureInPicture
+                nativeControls={false}
+              />
+              <View style={styles.videoControls}>
+                <Pressable 
+                  style={styles.playButton}
+                  onPress={togglePlayPause}
+                >
+                  <IconSymbol 
+                    name={isPlaying ? "pause.fill" : "play.fill"} 
+                    color={colors.card} 
+                    size={24} 
+                  />
+                </Pressable>
+                <View style={styles.videoInfo}>
+                  <IconSymbol name="video.fill" color={colors.card} size={16} />
+                  <Text style={styles.videoLabel}>Exercise Demonstration</Text>
+                </View>
+              </View>
+            </View>
+          )}
+
+          {/* Exercise Image (fallback if no video) */}
+          {!exercise.videoUrl && exercise.imageUrl && (
             <Image 
               source={{ uri: exercise.imageUrl }}
               style={styles.exerciseImage}
@@ -198,6 +247,47 @@ const styles = StyleSheet.create({
   },
   scrollView: {
     flex: 1,
+  },
+  videoContainer: {
+    width: '100%',
+    height: 250,
+    backgroundColor: '#000',
+    position: 'relative',
+  },
+  video: {
+    width: '100%',
+    height: '100%',
+  },
+  videoControls: {
+    position: 'absolute',
+    bottom: 0,
+    left: 0,
+    right: 0,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    padding: 16,
+    backgroundColor: 'rgba(0, 0, 0, 0.6)',
+  },
+  playButton: {
+    width: 48,
+    height: 48,
+    borderRadius: 24,
+    backgroundColor: colors.primary,
+    alignItems: 'center',
+    justifyContent: 'center',
+    boxShadow: '0px 4px 12px rgba(0, 0, 0, 0.3)',
+    elevation: 5,
+  },
+  videoInfo: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 8,
+  },
+  videoLabel: {
+    fontSize: 14,
+    fontWeight: '600',
+    color: colors.card,
   },
   exerciseImage: {
     width: '100%',
